@@ -13,7 +13,8 @@ function playRound() {
     // console.log("Computer's Choice: " + computerChoice);
     // console.log("Player's Choice: " + playerChoice);
     if (playerChoice === computerChoice) {
-        return "Draw!"
+        console.log("Draw!") 
+        return playRound();
     }
     else if (playerChoice === "Rock" && computerChoice === "Scissors") {
         return "You win! Rock beats Scissors!";
