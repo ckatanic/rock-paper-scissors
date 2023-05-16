@@ -3,6 +3,7 @@ let score = {
     computer: 0
 }
 
+// Randomly picks Rock, Paper or Scissors for the computer
 function getComputerChoice() {
     let getComputerChoice = "";
     let choiceOptions = ['Rock', 'Paper', 'Scissors'];
@@ -10,6 +11,7 @@ function getComputerChoice() {
     return getComputerChoice;
 }
 
+// Get player input and use computerChoice() to play 1 round of the game
 function playRound() {
     let computerChoice = getComputerChoice();
     let playerInput = prompt("Pick Rock, Paper or Scissors").toLowerCase().split("");
@@ -51,9 +53,9 @@ function playRound() {
     }
 }
 
+// Calls playRound() unitl eithe the player or the computer wins 3 games (best of 5)
+
 function playGame() {
-
-
     while (score.player <= 2 && score.computer <= 2 ) {
         console.log(playRound());
         console.log(score);
