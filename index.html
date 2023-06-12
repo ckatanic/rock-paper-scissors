@@ -4,9 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
     <title>Rock Paper Scissors</title>
 </head>
 <body>
+    <div class="info">
+        <div class="title">
+            <h1>Rock! Paper! Scissors!</h1>
+        </div>
+        <div class="score-display">
+            <div class="score" id="player-score">
+                <h2>Player:</h2>
+                <span>0</span>
+            </div>
+            <div class="score" id="cpu-score">
+                <h2>Computer:</h2>
+                <span>0</span>
+            </div>
+        </div>
+        <div class="display">
+            <p><span id="display-text"></span></p>
+        </div>
+    </div>
+    <div class="gameplay">
+        <div class="game-display" id="box1">
+            <img src="/img/rock_words_clear.png">
+        </div>
+        <div class="game-display" id="box2">
+            <img src="/img/paper_words_clear.png">
+        </div>
+        <div class="game-display" id="box3">
+            <img src="/img/scissors_words_clear.png">
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>

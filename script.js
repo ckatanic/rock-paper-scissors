@@ -1,3 +1,16 @@
+const display = document.getElementById("display-text");
+console.log(display.textContent);
+
+let text = "Choose Your Weapon!"
+let currentLetter = 0;
+
+function write() {
+    display.textContent = display.textContent + text.charAt(currentLetter);
+    currentLetter++
+
+    if (currentLetter < text.length) window.setTimeout(write, 75);
+}
+
 let score = {
     player: 0,
     computer: 0
@@ -53,7 +66,7 @@ function playRound() {
     }
 }
 
-// Calls playRound() unitl eithe the player or the computer wins 3 games (best of 5)
+// Calls playRound() until either the player or the computer wins 3 games (best of 5)
 
 function playGame() {
     while (score.player <= 2 && score.computer <= 2 ) {
@@ -68,3 +81,5 @@ function playGame() {
     }
 
 }
+
+write();

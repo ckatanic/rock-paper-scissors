@@ -1,0 +1,104 @@
+@font-face {
+    font-family: Choko;
+    src: url(/fonts/Chokokutai-Regular.ttf);
+}
+
+@font-face {
+    font-family: Caveat;
+    src: url(/fonts/Caveat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: orbit;
+    src: url(/fonts/Orbit-Regular.ttf);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    font: inherit;
+}
+
+body {
+    background-color: rgb(183, 3, 3);
+    color: #222;
+    max-width:1000px;
+    margin: auto;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.game-display img {
+    width: 150px;
+    background-color: white;
+}
+
+.game-display img:hover {
+    background-color: black;
+    cursor: pointer;
+}
+
+.gameplay {
+    width: 100%;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 5rem;
+    animation: fade-in 3000ms forwards;
+}
+
+h1 {
+    font-size: 5rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 1rem;
+    font-family: choko;
+}
+
+h2, .score span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: caveat;
+}
+
+.score-display, .score {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.score-display {
+    justify-content: space-around;
+}
+
+.display {
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-family: orbit;
+    color: white;
+    background-color: #222;
+}
+
+.game-display {
+    width: 200px;
+    /* border: 1px solid white; */
+    padding: 2rem;
+    display: grid;
+    align-content: ;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    50% { opacity: 15; }
+    100% { opacity: 100; }
+}
