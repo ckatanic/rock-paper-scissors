@@ -1,5 +1,16 @@
 const display = document.getElementById("display-text");
-console.log(display.textContent);
+const box1 = document.getElementById('box1');
+const box2 = document.getElementById('box2');
+const box3 = document.getElementById('box3');
+
+
+let gamePlayDivs = document.querySelectorAll('.game-display');
+
+gamePlayDivs.forEach((x) => {
+    x.addEventListener('click', function() {
+        playGame();
+    })
+})
 
 let text = "Choose Your Weapon!"
 let currentLetter = 0;
@@ -68,18 +79,60 @@ function playRound() {
 
 // Calls playRound() until either the player or the computer wins 3 games (best of 5)
 
+// function playGame() {
+//     while (score.player <= 2 && score.computer <= 2 ) {
+//         console.log(playRound());
+//         console.log(score);
+//     }
+
+//     if (score.player === 3) {
+//         console.log('Game Over: You Won!');
+//     } else {
+//         console.log("Game Over: You lost!")
+//     }
+
+// }
+
 function playGame() {
-    while (score.player <= 2 && score.computer <= 2 ) {
-        console.log(playRound());
-        console.log(score);
-    }
+    // get computer choice
+    // fade images out
+    const gameImages = document.getElementById("gamePlay");
+    gameImages.setAttribute('fading-out', "");
+    gameImages.addEventListener('animationend', () => {
+        gameImages.classList.add('hidden');
+        box1.src="/img/player_rock_clear.png";
+        box3.src="/img/cpu_rock_clear.png";
+        box2.style.display="none";
+        gameImages.classList.remove('hidden');
+        gameImages.removeAttribute('fading-out');
 
-    if (score.player === 3) {
-        console.log('Game Over: You Won!');
-    } else {
-        console.log("Game Over: You lost!")
-    }
+        
+    })
+    gameImages.addEventListener('animationend', () => {
+        gameImages.classList.remove('hidden');
+    })
 
+    // fade in horizontal hand images
+        // set box 1 & 3 to horizontal hand images
+        
+        // set box 2 to display: none
+
+    // animate fists founding x 3
+    // display player and cpu choice images
+    // display win/lose
+    // update score
+    // if (winner) {
+    //     disable event listeners on images 
+    //         and display play again button
+
+    // }
+    // if (!winner) {
+    //     reset display to Choose Your Weapon
+    // }
 }
 
-write();
+function onLoad() {
+    setTimeout(write, 1000);
+}
+
+onLoad();
