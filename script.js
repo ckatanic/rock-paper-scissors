@@ -1,15 +1,13 @@
 const display = document.getElementById("display-text");
+const gameImages = document.getElementById("gamePlay");
 const box1 = document.getElementById('box1');
 const box2 = document.getElementById('box2');
 const box3 = document.getElementById('box3');
 
 
-let gamePlayDivs = document.querySelectorAll('.game-display');
-
-gamePlayDivs.forEach((x) => {
-    x.addEventListener('click', function() {
-        playGame();
-    })
+let gameImageDivs = document.querySelectorAll('.game-display');
+gameImageDivs.forEach((x) => {
+    x.addEventListener('click', playRound);
 })
 
 let text = "Choose Your Weapon!"
@@ -29,10 +27,14 @@ let score = {
 
 // Randomly picks Rock, Paper or Scissors for the computer
 function getComputerChoice() {
-    let getComputerChoice = "";
-    let choiceOptions = ['Rock', 'Paper', 'Scissors'];
-    getComputerChoice = choiceOptions[Math.floor(Math.random() * 3)];
-    return getComputerChoice;
+    let computerChoice;
+    let choiceOptions = [
+        {word: 'Rock', image: '/img/cpu_rock_clear.png'},
+        {word: 'Paper', image: '/img/cpu_paper_clear.png'}, 
+        {word: 'Scissors', image: '/img/cpu_scissors_clear.png'}];
+    computerChoice = choiceOptions[Math.floor(Math.random() * 3)];
+    console.log(computerChoice);
+    return computerChoice;
 }
 
 // Get player input and use computerChoice() to play 1 round of the game
@@ -93,37 +95,57 @@ function playRound() {
 
 // }
 
-function playGame() {
+function playRound(e) {
     // get computer choice
+    let computerChoice = getComputerChoice();
+    console.log(computerChoice);
+    let playerChoice = {}
+    // get player choice 
+    console.log(e.target.id)
+    if (e.target.id === "box1") {
+        playerChoice.word = 'Rock';
+        playerChoice.image = '/img/player_rock_clear.png';
+    } else if (e.target.id === 'box2') {
+        playerChoice.word = 'Paper';
+        playerChoice.image = '/img/player_paper_clear.png';
+    } else if (e.target.id === 'box3') {
+        playerChoice.word = 'Scissors';
+        playerChoice.image = '/img/player_scissors_clear.png';
+    }
+    console.log(playerChoice);
+
     // fade images out
-    const gameImages = document.getElementById("gamePlay");
     gameImages.setAttribute('fading-out', "");
     gameImages.addEventListener('animationend', () => {
+        //fade-out images
         gameImages.classList.add('hidden');
+        // Change #box1 & #box3 to fist images and hide #box2
         box1.src="/img/player_rock_clear.png";
         box3.src="/img/cpu_rock_clear.png";
         box2.style.display="none";
+        // fade-in images back in
         gameImages.classList.remove('hidden');
         gameImages.removeAttribute('fading-out');
-
-        
     })
+
+    gameImageDivs.forEach((x) => {
+        x.removeEventListener('click', playRound);
+    })
+
+    // animate fists pounding x 3
     gameImages.addEventListener('animationend', () => {
-        gameImages.classList.remove('hidden');
+        gameImages.setAttribute('bounce2', "");
+
+        // display player and cpu choice images
+        gameImages.addEventListener('animationend', () => {
+            box1.src = playerChoice.image;
+            box3.src = computerChoice.image;
+        })
     })
-
-    // fade in horizontal hand images
-        // set box 1 & 3 to horizontal hand images
-        
-        // set box 2 to display: none
-
-    // animate fists founding x 3
-    // display player and cpu choice images
-    // display win/lose
+    // display win/lose message
     // update score
     // if (winner) {
-    //     disable event listeners on images 
-    //         and display play again button
+        // display play again button
 
     // }
     // if (!winner) {
