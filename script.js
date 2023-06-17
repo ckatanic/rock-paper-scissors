@@ -38,6 +38,14 @@ function getComputerChoice() {
     return computerChoice;
 }
 
+// Display new text on info display
+function displayText(newText) {
+    display.textContent="";
+    text = newText;
+    currentLetter = 0;
+    write();
+}
+
 // Get player input and use computerChoice() to play 1 round of the game
 // function playRound() {
 //     let computerChoice = getComputerChoice();
@@ -141,36 +149,36 @@ function playRound(e) {
 
         if (playerChoice.word === computerChoice.word) {
             console.log("Draw!") 
-            return playRound();
+            // return playRound();
         }
         else if (playerChoice.word === "Rock" && computerChoice.word === "Scissors") {
             score.player += 1;
-            return "You win! Rock beats Scissors!";
+            displayText("You win! Rock beats Scissors!");
         }
         else if (playerChoice.word === "Rock" && computerChoice.word === "Paper") {
             score.computer += 1;
             console.log("You lose! Paper beats Rock!");
-            return "You lose! Paper beats Rock!";
+            displayText("You lose! Paper beats Rock!");
         }
         else if (playerChoice.word === "Paper" && computerChoice.word === "Scissors") {
             score.computer += 1;
-            console.log("You lose! Scissors beats Rock!");
-            return "You lose! Scissors beats Rock!";
+            console.log("You lose! Scissors beats Paper!");
+            displayText("You lose! Scissors beats Paper!");
         }
         else if (playerChoice.word === "Paper" && computerChoice.word === "Rock") {
             score.player += 1;
             console.log("You win! Paper beats Rock!");
-            return "You win! Paper beats Rock!";
+            displayText("You win! Paper beats Rock!");
         }
         else if (playerChoice.word === "Scissors" && computerChoice.word === "Rock") {
             score.computer += 1;
             console.log("You lose! Rock beats Scissors!");
-            return "You lose! Rock beats Scissors!";
+            displayText("You lose! Rock beats Scissors!");
         }
         else if (playerChoice.word === "Scissors" && computerChoice.word === "Paper") {
             score.player += 1;
             console.log("You win! Scissors beats Paper!");
-            return "You win! Scissors beats Paper!";
+            displayText("You win! Scissors beats Paper!");
         }
         })
     })
@@ -186,6 +194,8 @@ function playRound(e) {
     //     reset display to Choose Your Weapon
     // }
 }
+
+
 
 function onLoad() {
     setTimeout(write(), 1000);
