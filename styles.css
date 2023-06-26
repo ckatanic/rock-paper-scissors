@@ -41,7 +41,7 @@ body {
     transition: 200ms;
 }
 
-.game-display img:hover {
+.hover:hover {
     background-color: #111;
     cursor: pointer;
 }
