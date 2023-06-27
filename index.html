@@ -12,29 +12,30 @@
         <div class="title">
             <h1>Rock! Paper! Scissors!</h1>
         </div>
-        <div class="score-display">
-            <div class="score" id="player-score">
-                <h2>Player:</h2>
-                <span>0</span>
-            </div>
-            <div class="score" id="cpu-score">
-                <h2>Computer:</h2>
-                <span>0</span>
-            </div>
-        </div>
+        
         <div class="display">
             <p><span id="display-text"></span></p>
+        </div>
+        <div class="score-display">
+            <div class="score">
+                <h2>Player:</h2>
+                <span id="player-score">0</span>
+            </div>
+            <div class="score">
+                <h2>Computer:</h2>
+                <span id="computer-score">0</span>
+            </div>
         </div>
     </div>
     <div class="gameplay" id="gamePlay">
         <div class="game-display">
-            <img id="box1" src="/img/rock_words_clear.png">
-        </div>
-        <div class="game-display" >
-            <img id="box2" src="/img/paper_words_clear.png">
+            <img id="image1" class="hover" src="/img/rock_words_clear.png">
         </div>
         <div class="game-display">
-            <img id="box3" src="/img/scissors_words_clear.png">
+            <img id="image2" class="hover" src="/img/paper_words_clear.png">
+        </div>
+        <div class="game-display">
+            <img id="image3" class="hover" src="/img/scissors_words_clear.png">
         </div>
     </div>
     <script src="script.js"></script>

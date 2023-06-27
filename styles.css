@@ -34,11 +34,13 @@ body {
 .info {
     display: flex;
     flex-direction: column;
+    color: white;
 }
 
 .game-display img {
     background-color: white;
     transition: 200ms;
+    border-style: none;
 }
 
 .hover:hover {
@@ -53,7 +55,7 @@ body {
     flex-direction: row;
     justify-content: space-around;
     margin-top: 5rem;
-    animation: fade-in 3000ms forwards;
+    animation: fade-in 5s forwards;
 }
 
 h1 {
@@ -89,7 +91,7 @@ h2, .score span {
     font-family: orbit;
     color: white;
     background-color: #222;
-    animation: fade-in 5000ms forwards;
+    animation: fade-in 4000ms forwards;
     width: 100%;
     height: 3rem;
     
@@ -113,7 +115,7 @@ h2, .score span {
 
 @keyframes fade-in {
     0% { opacity: 0; }
-    50% { opacity: 15; }
+    50% { opacity: 30; }
     100% { opacity: 100; }
 }
 

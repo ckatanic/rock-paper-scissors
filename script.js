@@ -17,7 +17,7 @@ let score = {
     computer: 0
 }
 
-let text = "Choose Your Weapon!";
+let text = "";
 let currentLetter = 0;
 
 function write() {
@@ -48,23 +48,26 @@ function displayText(newText) {
     write();
 }
 
-// function playGame() {
-    //call playRound()
-    //check for winner
-    //if (winner) { display winning message }
-    //if (!winner) { 
-        // reset display
-        // call playRound again
-    // }
-// }
+function checkForWinner() {
+    setTimeout(() => {
+    if (score.player === 5) {
+        return displayText("Game Over! You Win!")
+    } else if (score.computer === 5) {
+        return displayText("Game Over! You Lost!")
+    } return reset()}, 4000)
+}
 
 function playRound(e) {
+    displayText('FIGHT!');
+
     image1.classList.toggle('hover');
     image2.classList.toggle('hover');
     image3.classList.toggle('hover');
+
     // get computer choice
     let computerChoice = getComputerChoice();
     let playerChoice = {}
+
     // get player choice 
     if (e.target.id === "image1") {
         playerChoice.word = 'Rock';
@@ -87,7 +90,7 @@ function playRound(e) {
     image3.src="/img/cpu_rock_clear.png";
     image2.style.display="none";
 
-    // fade-in images back in
+    // fade-in images
     gameImages.classList.remove('hidden');
     gameImages.removeAttribute('fading-out');
     }, {once: true})
@@ -107,51 +110,62 @@ function playRound(e) {
 
         if (playerChoice.word === computerChoice.word) {
             displayText("Draw!");
+            setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Rock" && computerChoice.word === "Scissors") {
             score.player += 1;
             displayText("You win! Rock beats Scissors!");
+            updateScore();
+            checkForWinner();
+            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Rock" && computerChoice.word === "Paper") {
             score.computer += 1;
-            console.log("You lose! Paper beats Rock!");
-            displayText("You lose! Paper beats Rock!");
+            console.log("You lose! Rock beats Paper!");
+            displayText("You lose! Rock beats Paper!");
+            updateScore();
+            checkForWinner();
+            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Paper" && computerChoice.word === "Scissors") {
             score.computer += 1;
             console.log("You lose! Scissors beats Paper!");
             displayText("You lose! Scissors beats Paper!");
+            updateScore();
+            checkForWinner();
+            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Paper" && computerChoice.word === "Rock") {
             score.player += 1;
             console.log("You win! Paper beats Rock!");
             displayText("You win! Paper beats Rock!");
+            updateScore();
+            checkForWinner();
+            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Scissors" && computerChoice.word === "Rock") {
             score.computer += 1;
             console.log("You lose! Rock beats Scissors!");
             displayText("You lose! Rock beats Scissors!");
+            updateScore();
+            checkForWinner();
+            // setTimeout(() => {return reset()}, 3000);
         }
         else if (playerChoice.word === "Scissors" && computerChoice.word === "Paper") {
             score.player += 1;
             console.log("You win! Scissors beats Paper!");
             displayText("You win! Scissors beats Paper!");
-        }
-        playerScore.innerText = score.player;
-        computerScore.innerText = score.computer;
-        }, {once: true})
-        
-        console.log("TESTING");
-        
+            updateScore();
+            checkForWinner();
+            // setTimeout(() => {return reset()}, 3000);
+    }}, {once: true})
+                
     }, {once: true})
-    // }
-    // if (!winner) {
-    //     reset display to Choose Your Weapon
-    // }
 
 }
 
 function reset() {
+    displayText("Choose Your Weapon!")
     
     // fade images out
     gameImages.removeAttribute('bounce2');
@@ -176,8 +190,16 @@ function reset() {
     }, {once: true})
 }
 
+function updateScore() {
+    playerScore.innerText = score.player;
+    computerScore.innerText = score.computer;
+}
+
 function onLoad() {
-    setTimeout(write(), 1000);
+    
+    setTimeout(function() { 
+        displayText("Choose Your Weapon!")
+    }, 2000)
 }
 
 onLoad();
