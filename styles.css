@@ -29,6 +29,7 @@ body {
     color: #222;
     max-width:1000px;
     margin: auto;
+    min-width: 500px;
 }
 
 .info {
@@ -77,11 +78,11 @@ h2, .score span {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    /* color: white; */
 }
 
 .score-display {
     justify-content: space-around;
+    color: 
 }
 
 .display {

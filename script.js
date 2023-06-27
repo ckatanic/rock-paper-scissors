@@ -5,9 +5,8 @@ const image2 = document.getElementById('image2');
 const image3 = document.getElementById('image3');
 const playerScore = document.getElementById('player-score');
 const computerScore = document.getElementById('computer-score');
+const gameImageDivs = document.querySelectorAll('.game-display');
 
-
-let gameImageDivs = document.querySelectorAll('.game-display');
 gameImageDivs.forEach((x) => {
     x.addEventListener('click', playRound);
 })
@@ -83,16 +82,20 @@ function playRound(e) {
     // fade images out
     gameImages.setAttribute('fading-out', "");
     gameImages.addEventListener('animationend', () => {
-    gameImages.classList.add('hidden');
+        gameImages.classList.add('hidden');
+        console.log(1);
+        // Change #box1 & #box3 to fist images and hide #box2
+        image1.style.display='none';
+        image3.style.display='none';
+        image2.style.display="none";
+        image3.src="/img/cpu_rock_clear.png";
+        image1.src="/img/player_rock_clear.png";
+        image1.style.display='block';
+        image3.style.display='block';
 
-    // Change #box1 & #box3 to fist images and hide #box2
-    image1.src="/img/player_rock_clear.png";
-    image3.src="/img/cpu_rock_clear.png";
-    image2.style.display="none";
-
-    // fade-in images
-    gameImages.classList.remove('hidden');
-    gameImages.removeAttribute('fading-out');
+        // fade-in images
+        gameImages.classList.remove('hidden');
+        // gameImages.removeAttribute('fading-out');
     }, {once: true})
 
     gameImageDivs.forEach((x) => {
@@ -173,7 +176,7 @@ function reset() {
     gameImages.addEventListener('animationend', () => {
     gameImages.classList.add('hidden');
 
-    // Change #box1 & #box3 to fist images and hide #box2
+    // Change #box1 & #box3 to game images and show #box2
     image1.src="/img/rock_words_clear.png";
     image3.src="/img/scissors_words_clear.png";
     image2.style.display="block";
