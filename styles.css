@@ -54,7 +54,7 @@ body {
     align-items: flex-end;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     margin-top: 5rem;
     animation: fade-in 5s forwards;
 }
@@ -82,7 +82,7 @@ h2, .score span {
 
 .score-display {
     justify-content: space-around;
-    color: 
+    animation: fade-in 3s forwards;
 }
 
 .display {
@@ -108,6 +108,10 @@ h2, .score span {
     animation: fade-out 1000ms forwards;
 }
 
+.gameplay[fading-in] {
+    animation: fade-in 2000ms forwards;
+}
+
 
 
 .hidden {
@@ -116,7 +120,7 @@ h2, .score span {
 
 @keyframes fade-in {
     0% { opacity: 0; }
-    50% { opacity: 30; }
+    75% { opacity: 30; }
     100% { opacity: 100; }
 }
 

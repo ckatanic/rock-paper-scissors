@@ -50,7 +50,7 @@ function displayText(newText) {
 function checkForWinner() {
     setTimeout(() => {
     if (score.player === 5) {
-        return displayText("Game Over! You Win!")
+        return displayText("Game Over! You Won!")
     } else if (score.computer === 5) {
         return displayText("Game Over! You Lost!")
     } return reset()}, 4000)
@@ -95,7 +95,8 @@ function playRound(e) {
 
         // fade-in images
         gameImages.classList.remove('hidden');
-        // gameImages.removeAttribute('fading-out');
+        gameImages.removeAttribute('fading-out');
+        // gameImages.setAttribute('fading-in', "");
     }, {once: true})
 
     gameImageDivs.forEach((x) => {
@@ -200,9 +201,15 @@ function updateScore() {
 
 function onLoad() {
     
-    setTimeout(function() { 
+    // setTimeout(function() { 
+    //     displayText("Welcome to Rock! Paper! Scissors!")
+    // }, 1000)
+    // setTimeout(function () {
+    //     displayText("First player to score 5 wins")
+    // }, 6000)
+    setTimeout(function() {
         displayText("Choose Your Weapon!")
-    }, 2000)
+    },1000)
 }
 
 onLoad();
