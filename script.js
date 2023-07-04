@@ -7,9 +7,7 @@ const playerScore = document.getElementById('player-score');
 const computerScore = document.getElementById('computer-score');
 const gameImageDivs = document.querySelectorAll('.game-display');
 
-gameImageDivs.forEach((x) => {
-    x.addEventListener('click', playRound);
-})
+
 
 let score = {
     player: 0,
@@ -208,8 +206,11 @@ function onLoad() {
     //     displayText("First player to score 5 wins")
     // }, 6000)
     setTimeout(function() {
-        displayText("Choose Your Weapon!")
-    },1000)
+        displayText("Choose Your Weapon!");
+        gameImageDivs.forEach((x) => {
+            x.addEventListener('click', playRound);
+        })
+    },6000)
 }
 
 onLoad();
