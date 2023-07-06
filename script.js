@@ -78,13 +78,11 @@ function playRound(e) {
     }
 
     // fade images out
-    // gameImages.removeAttribute('fading-in', "");
-    // gameImages.style.opacity="1";
     gameImages.removeAttribute('fading-in', "");
     gameImages.setAttribute('fading-out', "");
     gameImages.addEventListener('animationend', () => {
         gameImages.classList.add('hidden');
-        console.log(1);
+
         // Change #box1 & #box3 to fist images and hide #box2
         image1.style.display='none';
         image3.style.display='none';
@@ -122,7 +120,6 @@ function playRound(e) {
             displayText("You win! Rock beats Scissors!");
             updateScore();
             checkForWinner();
-            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Rock" && computerChoice.word === "Paper") {
             score.computer += 1;
@@ -130,7 +127,6 @@ function playRound(e) {
             displayText("You lose! Rock beats Paper!");
             updateScore();
             checkForWinner();
-            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Paper" && computerChoice.word === "Scissors") {
             score.computer += 1;
@@ -138,7 +134,6 @@ function playRound(e) {
             displayText("You lose! Scissors beats Paper!");
             updateScore();
             checkForWinner();
-            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Paper" && computerChoice.word === "Rock") {
             score.player += 1;
@@ -146,7 +141,6 @@ function playRound(e) {
             displayText("You win! Paper beats Rock!");
             updateScore();
             checkForWinner();
-            // setTimeout(() => {return reset()}, 5000);
         }
         else if (playerChoice.word === "Scissors" && computerChoice.word === "Rock") {
             score.computer += 1;
@@ -154,7 +148,6 @@ function playRound(e) {
             displayText("You lose! Rock beats Scissors!");
             updateScore();
             checkForWinner();
-            // setTimeout(() => {return reset()}, 3000);
         }
         else if (playerChoice.word === "Scissors" && computerChoice.word === "Paper") {
             score.player += 1;
@@ -162,7 +155,6 @@ function playRound(e) {
             displayText("You win! Scissors beats Paper!");
             updateScore();
             checkForWinner();
-            // setTimeout(() => {return reset()}, 3000);
     }}, {once: true})
                 
     }, {once: true})
@@ -190,6 +182,7 @@ function reset() {
     image1.classList.toggle('hover');
     image2.classList.toggle('hover');
     image3.classList.toggle('hover');
+
     // fade-in images back in
     gameImages.classList.remove('hidden');
     gameImages.removeAttribute('fading-out');
@@ -202,13 +195,6 @@ function updateScore() {
 }
 
 function onLoad() {
-    
-    // setTimeout(function() { 
-    //     displayText("Welcome to Rock! Paper! Scissors!")
-    // }, 1000)
-    // setTimeout(function () {
-    //     displayText("First player to score 5 wins")
-    // }, 6000)
     setTimeout(function() {
         displayText("Choose Your Weapon!");
         gameImageDivs.forEach((x) => {
@@ -218,7 +204,6 @@ function onLoad() {
         image2.classList.add('hover');
         image3.classList.add('hover');
         gameImages.setAttribute('fading-in', "");
-        // gameImages.style.animation="fade-in 5s forwards";
     },6000)
 }
 
