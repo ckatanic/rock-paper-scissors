@@ -78,6 +78,9 @@ function playRound(e) {
     }
 
     // fade images out
+    // gameImages.removeAttribute('fading-in', "");
+    // gameImages.style.opacity="1";
+    gameImages.removeAttribute('fading-in', "");
     gameImages.setAttribute('fading-out', "");
     gameImages.addEventListener('animationend', () => {
         gameImages.classList.add('hidden');
@@ -179,6 +182,7 @@ function reset() {
     image1.src="/img/rock_words_clear.png";
     image3.src="/img/scissors_words_clear.png";
     image2.style.display="block";
+    gameImages.setAttribute('fading-in', "");
     
     gameImageDivs.forEach((x) => {
         x.addEventListener('click', playRound);
@@ -210,6 +214,11 @@ function onLoad() {
         gameImageDivs.forEach((x) => {
             x.addEventListener('click', playRound);
         })
+        image1.classList.add('hover');
+        image2.classList.add('hover');
+        image3.classList.add('hover');
+        gameImages.setAttribute('fading-in', "");
+        // gameImages.style.animation="fade-in 5s forwards";
     },6000)
 }
 
