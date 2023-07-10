@@ -6,8 +6,13 @@ const image3 = document.getElementById('image3');
 const playerScore = document.getElementById('player-score');
 const computerScore = document.getElementById('computer-score');
 const gameImageDivs = document.querySelectorAll('.game-display');
+const playButton = document.getElementById('playButton');
+const playAgainButton = document.getElementById('playAgainButton');
+const introDisplay = document.getElementById('intro-display');
+const scoreDisplay=document.getElementById('score-display');
 
-
+playButton.addEventListener('click', startGame);
+playAgainButton.addEventListener('click', restartGame);
 
 let score = {
     player: 0,
@@ -48,10 +53,17 @@ function displayText(newText) {
 function checkForWinner() {
     setTimeout(() => {
     if (score.player === 5) {
-        return displayText("Game Over! You Won!")
+        console.log('Test');
+        gameImages.style.display="none";
+        document.getElementById('game-over').style.display="flex";
+        displayText("Game Over! You Won!")
+        return;
     } else if (score.computer === 5) {
-        return displayText("Game Over! You Lost!")
-    } return reset()}, 4000)
+        gameImages.style.display="none";
+        document.getElementById('game-over').style.display="flex";
+        displayText("Game Over! You Lost!");
+        return;
+    } return resetRound()}, 4000)
 }
 
 function playRound(e) {
@@ -113,7 +125,7 @@ function playRound(e) {
 
         if (playerChoice.word === computerChoice.word) {
             displayText("Draw!");
-            setTimeout(() => {return reset()}, 5000);
+            setTimeout(() => {return resetRound()}, 5000);
         }
         else if (playerChoice.word === "Rock" && computerChoice.word === "Scissors") {
             score.player += 1;
@@ -161,7 +173,7 @@ function playRound(e) {
 
 }
 
-function reset() {
+function resetRound() {
     displayText("Choose Your Weapon!")
     
     // fade images out
@@ -194,17 +206,41 @@ function updateScore() {
     computerScore.innerText = score.computer;
 }
 
-function onLoad() {
-    setTimeout(function() {
-        displayText("Choose Your Weapon!");
-        gameImageDivs.forEach((x) => {
-            x.addEventListener('click', playRound);
+function startGame() {
+    introDisplay.setAttribute('fading-out', "");
+    introDisplay.addEventListener('animationend', () => {
+        document.getElementById('title-rock').setAttribute('on', "");
+        document.getElementById('title-paper').setAttribute('on', "");
+        document.getElementById('title-scissors').setAttribute('on', "")
+        document.getElementById('title-scissors').addEventListener('animationend', () => {
+            introDisplay.style.display="none";
+            scoreDisplay.setAttribute('fading-in', "");
+            gameImages.style.display="flex";
+            scoreDisplay.style.display="flex";
+
+            displayText("Choose Your Weapon!");
+            gameImageDivs.forEach((x) => {
+                x.addEventListener('click', playRound);
+            })
+            image1.classList.add('hover');
+            image2.classList.add('hover');
+            image3.classList.add('hover');
+            gameImages.setAttribute('fading-in', "");
         })
-        image1.classList.add('hover');
-        image2.classList.add('hover');
-        image3.classList.add('hover');
-        gameImages.setAttribute('fading-in', "");
-    },6000)
+            
+        
+        }, {once: true})
+        
+}
+
+function restartGame() {
+    location.reload();    
+}
+
+function onLoad() {
+    setTimeout(() => {
+        introDisplay.setAttribute('fading-in', "");
+    }, 1000);
 }
 
 onLoad();

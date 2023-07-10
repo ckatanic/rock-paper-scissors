@@ -31,9 +31,12 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     background-color: var(--main-color);
     color: #222;
     max-width:1000px;
+    height: 100vh;
     margin: auto;
     min-width: 500px;
     user-select: none;
@@ -43,6 +46,49 @@ body {
     display: flex;
     flex-direction: column;
     color: white;
+}
+
+#intro-display {
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    font-family: orbit;
+    color: #222;
+    
+}
+
+#intro-display[fading-in] {
+    animation: fade-in 3s forwards;
+}
+
+#intro-display[fading-out] {
+    animation: fade-out 1.5s forwards;
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: bold;
+    /* color: white; */
+}
+
+.rules {
+    margin: 1rem;
+}
+
+.button {
+    cursor: pointer;
+    padding: .5rem 3rem;
+    font-family: orbit;
+    font-size: 2rem;
+    background-color: #222;
+    color: white;
+    border: 0;
+    border-radius: 15px;
+}
+
+.button:hover {
+    background-color: #333;
 }
 
 .game-display img {
@@ -64,9 +110,11 @@ body {
     justify-content: space-between;
     margin-top: 5rem;
     opacity: 0;
+    display: none;
 }
 
 h1 {
+    opacity: 0;
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
@@ -76,18 +124,19 @@ h1 {
     -webkit-box-reflect: below -30px linear-gradient(transparent, #0004);
     margin-bottom: 2rem;
     text-transform: uppercase;
+    animation: fade-in 3s forwards;
 }
 
-h1 span:nth-child(1) {
+h1 span:nth-child(1)[on] {
     animation: flicker-on 2s forwards;
 }
 
-h1 span:nth-child(2) {
+h1 span:nth-child(2)[on] {
     animation: flicker-on-2 1.75s forwards;
     animation-delay: 2s;
 }
 
-h1 span:nth-child(3) {
+h1 span:nth-child(3)[on] {
     animation: flicker-on 2s forwards;
     animation-delay: 3.5s;
 }
@@ -105,10 +154,11 @@ h2, .score span {
 }
 
 .score-display {
+    display: none;
     opacity: 0;
     justify-content: space-around;
-    animation: fade-in 3s forwards;
-    animation-delay: 6s;
+    /* animation-delay: 6s; */
+    /* animation: fade-in 4s forwards; */
 }
 
 .display {
@@ -124,11 +174,13 @@ h2, .score span {
     
 }
 
+.score-display[fading-in] {
+    animation: fade-in 5s forwards;
+}
+
 .game-display {
     padding: 2rem;
 }
-
-
 
 .gameplay[fading-out] {
     animation: fade-out 1000ms forwards;
@@ -157,6 +209,13 @@ h2, .score span {
     opacity: 1;
     animation: bounce2 800ms ease ;
     animation-iteration-count: 3;
+}
+
+#game-over {
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
 }
   
 @keyframes bounce2 {
