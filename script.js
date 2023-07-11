@@ -240,7 +240,7 @@ function restartGame() {
 function onLoad() {
     setTimeout(() => {
         introDisplay.setAttribute('fading-in', "");
-    }, 1000);
+    }, 500);
 }
 
 onLoad();

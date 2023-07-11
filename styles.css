@@ -69,7 +69,6 @@ body {
 h3 {
     font-size: 3rem;
     font-weight: bold;
-    /* color: white; */
 }
 
 .rules {
@@ -91,10 +90,11 @@ h3 {
     background-color: #333;
 }
 
+
+
 .game-display img {
     background-color: white;
     transition: 200ms;
-    border-style: none;
 }
 
 .hover:hover {
@@ -103,12 +103,13 @@ h3 {
 }
 
 .gameplay {
-    width: 100%;
+    width: 90%;
     align-items: flex-end;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 5rem;
+    margin: auto;
     opacity: 0;
     display: none;
 }
@@ -118,13 +119,18 @@ h1 {
     font-size: 4rem;
     font-weight: bold;
     text-align: center;
-    margin-top: 3rem;
+    margin-top: 2rem;
     font-family: choko;
     color: var(--secondary-color);
     -webkit-box-reflect: below -30px linear-gradient(transparent, #0004);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
     animation: fade-in 3s forwards;
+}
+
+p {
+    /* margin-bottom: 1rem; */
+    font-size: 1.5rem;
 }
 
 h1 span:nth-child(1)[on] {
@@ -157,11 +163,12 @@ h2, .score span {
     display: none;
     opacity: 0;
     justify-content: space-around;
-    /* animation-delay: 6s; */
-    /* animation: fade-in 4s forwards; */
 }
 
 .display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     margin: 2rem 0;
     font-size: 2rem;
@@ -171,15 +178,15 @@ h2, .score span {
     animation: fade-in 5s forwards;
     width: 100%;
     height: 3rem;
-    
+}
+
+#intro-display p {
+    margin-bottom: 1rem;
+    color: white;
 }
 
 .score-display[fading-in] {
     animation: fade-in 5s forwards;
-}
-
-.game-display {
-    padding: 2rem;
 }
 
 .gameplay[fading-out] {
@@ -248,3 +255,7 @@ h2, .score span {
         text-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color), 0 0 40px var(--highlight-color), 0 0 80px var(--highlight-color), 0 0 120px var(--highlight-color);
     }
 }
+
+
+
+
