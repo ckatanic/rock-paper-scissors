@@ -31,13 +31,13 @@
 }
 
 body {
-    min-width: 400px;
+    /* min-width: 400px; */
     display: flex;
     flex-direction: column;
     background-color: var(--main-color);
     color: #222;
     max-width:1000px;
-    height: 80vh;
+    height: 70vh;
     margin: auto;
     user-select: none;
 }
@@ -137,7 +137,6 @@ h1 {
 }
 
 p {
-    /* margin-bottom: 1rem; */
     font-size: 1.5rem;
 }
 
@@ -290,7 +289,16 @@ h2, .score span {
         font-size: 1.5rem;
     }
 
-    #image1, #image2, #image3 { width: 55% }
+    p {
+        font-size: 1rem;
+    }
+
+    .display {
+        margin: 0 0 0.5rem 0;
+        height: 1.75rem;
+    }
+
+    #image1, #image2, #image3 { width: 50% }
 
     .game-display {
         display: flex;
