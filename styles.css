@@ -31,12 +31,13 @@
 }
 
 body {
+    min-width: 400px;
     display: flex;
     flex-direction: column;
     background-color: var(--main-color);
     color: #222;
     max-width:1000px;
-    height: 100vh;
+    height: 80vh;
     margin: auto;
     user-select: none;
 }
@@ -263,34 +264,33 @@ h2, .score span {
     }
 }
 
+@media screen and (max-width: 1000px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
 @media screen and (max-width: 800px) {
 
     body {
         width: 100vw;
     }
 
+    .display {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
     h1 {
-        font-size: 1.75rem;
+        font-size: 1.5rem;
         -webkit-box-reflect: below -0.9rem linear-gradient(transparent, #0004);
     }
 
     h2, .score span {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 
-    #image1, #image2, #image3 { width: 65% }
-    /* #image2 { width: 50% } */
-    /* #image3 { width: 50% } */
-
-    /* .game-display:nth-child(2) {
-        display: flex;
-        justify-content: center;
-    }
-
-    .game-display:nth-child(3) {
-        display: flex;
-        justify-content: flex-end;
-    } */
+    #image1, #image2, #image3 { width: 55% }
 
     .game-display {
         display: flex;
@@ -304,7 +304,12 @@ h2, .score span {
     #intro-display {
         height: 100%;
         display: flex; 
-        justify-content: space-around;
+        gap: 3rem;
+        /* justify-content: space-around; */
+    }
+
+    .rules img {
+        width: 65%;
     }
 
     .gameplay {
@@ -312,7 +317,7 @@ h2, .score span {
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        margin: auto;
+        margin-top: 4rem;
     }
 
 }
