@@ -1,0 +1,322 @@
+@font-face {
+    font-family: Choko;
+    src: url(./fonts/Chokokutai-Regular.ttf);
+}
+
+@font-face {
+    font-family: Caveat;
+    src: url(./fonts/Caveat-VariableFont_wght.ttf);
+}
+
+@font-face {
+    font-family: orbit;
+    src: url(./fonts/Orbit-Regular.ttf);
+}
+
+:root {
+    --main-color: rgb(183, 3, 3);
+    --secondary-color: rgb(194, 49, 49);
+    --highlight-color: rgb(244, 97, 97);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+    font: inherit;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--main-color);
+    color: #222;
+    max-width:1000px;
+    height: 100vh;
+    margin: auto;
+    user-select: none;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+#intro-display {
+    display: flex;
+    opacity: 0;
+    flex-direction: column;
+    align-items: center;
+    font-family: orbit;
+    color: #222;
+    
+}
+
+#intro-display[fading-in] {
+    animation: fade-in 3s forwards;
+}
+
+#intro-display[fading-out] {
+    animation: fade-out 1.5s forwards;
+}
+
+h3 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.rules {
+    margin: 1rem;
+}
+
+.button {
+    cursor: pointer;
+    padding: .5rem 3rem;
+    font-family: orbit;
+    font-size: 2rem;
+    background-color: #222;
+    color: white;
+    border: 0;
+    border-radius: 15px;
+}
+
+.button:hover {
+    background-color: #333;
+}
+
+
+
+.game-display img {
+    background-color: white;
+    transition: 200ms;
+}
+
+.hover:hover {
+    background-color: #111;
+    cursor: pointer;
+}
+
+.gameplay {
+    width: 90%;
+    align-items: flex-end;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5rem auto 0 auto;
+    opacity: 0;
+    display: none;
+    /* padding-left: 5%; */
+    /* padding-right: 5%; */
+    /* background-color: green; */
+}
+
+.game-display {
+    /* display: flex; */
+    justify-content: center;
+    /* background-color: blue; */
+}
+
+h1 {
+    opacity: 0;
+    font-size: 4rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    font-family: choko;
+    color: var(--secondary-color);
+    -webkit-box-reflect: below -2rem linear-gradient(transparent, #0004);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    animation: fade-in 3s forwards;
+}
+
+p {
+    /* margin-bottom: 1rem; */
+    font-size: 1.5rem;
+}
+
+h1 span:nth-child(1)[on] {
+    animation: flicker-on 2s forwards;
+}
+
+h1 span:nth-child(2)[on] {
+    animation: flicker-on-2 1.75s forwards;
+    animation-delay: 2s;
+}
+
+h1 span:nth-child(3)[on] {
+    animation: flicker-on 2s forwards;
+    animation-delay: 3.5s;
+}
+
+h2, .score span {
+    font-size: 2.5rem;
+    font-weight: bold;
+    font-family: caveat;
+}
+
+.score-display, .score {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+}
+
+.score-display {
+    display: none;
+    opacity: 0;
+    justify-content: space-around;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 2rem 0;
+    font-size: 2rem;
+    font-family: orbit;
+    color: white;
+    background-color: #222;
+    animation: fade-in 5s forwards;
+    width: 100%;
+    height: 3rem;
+}
+
+#intro-display p {
+    margin-bottom: 1rem;
+    color: white;
+}
+
+.score-display[fading-in] {
+    animation: fade-in 5s forwards;
+}
+
+.gameplay[fading-out] {
+    animation: fade-out 1000ms forwards;
+}
+
+.gameplay[fading-in] {
+    animation: fade-in 4000ms forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+@keyframes fade-in {
+    0% { opacity: 0; }
+    75% { opacity: 30; }
+    100% { opacity: 100; }
+}
+
+@keyframes fade-out {
+    0% { opacity: 100; }
+    100% { opacity: 0; }
+}
+
+.gameplay[bounce2] {
+    opacity: 1;
+    animation: bounce2 800ms ease ;
+    animation-iteration-count: 3;
+}
+
+#game-over {
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+  
+@keyframes bounce2 {
+    0%, 20%, 50%, 100% {transform: translateY(0);}
+    90% {transform: translateY(-50px);}
+}
+
+@keyframes flicker-on {
+    0%, 18%, 50.1%, 60%, 65.1%, 80%, 90.1% 
+    {
+        color: var(--secondary-color);
+        text-shadow: none;
+    }
+    18.1%, 60.1%, 65%, 80.1%, 100%
+    {
+        color: #ffff;
+        text-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color), 0 0 40px var(--highlight-color), 0 0 80px var(--highlight-color), 0 0 120px var(--highlight-color);
+    }
+}
+
+@keyframes flicker-on-2 {
+    0%, 18%, 25%, 50%, 65.1%
+    {
+        color: var(--secondary-color);
+        text-shadow: none;
+    }
+    18.1%, 25.1%, 65%, 100%
+    {
+        color: #ffff;
+        text-shadow: 0 0 10px var(--highlight-color), 0 0 20px var(--highlight-color), 0 0 40px var(--highlight-color), 0 0 80px var(--highlight-color), 0 0 120px var(--highlight-color);
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    body {
+        width: 100vw;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+        -webkit-box-reflect: below -0.9rem linear-gradient(transparent, #0004);
+    }
+
+    h2, .score span {
+        font-size: 2rem;
+    }
+
+    #image1, #image2, #image3 { width: 65% }
+    /* #image2 { width: 50% } */
+    /* #image3 { width: 50% } */
+
+    /* .game-display:nth-child(2) {
+        display: flex;
+        justify-content: center;
+    }
+
+    .game-display:nth-child(3) {
+        display: flex;
+        justify-content: flex-end;
+    } */
+
+    .game-display {
+        display: flex;
+    }
+
+    .rules {
+        display: flex;
+        justify-content: center;
+    }
+
+    #intro-display {
+        height: 100%;
+        display: flex; 
+        justify-content: space-around;
+    }
+
+    .gameplay {
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin: auto;
+    }
+
+}
+
+
+
+

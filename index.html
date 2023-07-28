@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <div class="info">
+        <div class="title">
+            <h1><span id="title-rock">Rock! </span><span id="title-paper">Paper! </span><span id="title-scissors">Scissors!</span></h1>
+        </div>
+        
+        <div class="display">
+            <p><span id="display-text"></span></p>
+        </div>
+        <div class="score-display" id="score-display">
+            <div class="score">
+                <h2>Player:</h2>
+                <span id="player-score">0</span>
+            </div>
+            <div class="score">
+                <h2>Computer:</h2>
+                <span id="computer-score">0</span>
+            </div>
+        </div>
+    </div>
+    <div class="gameplay" id="gamePlay">
+        <div class="game-display">
+            <img id="image1" src="./img/new_rock_words.png">
+        </div>
+        <div class="game-display">
+            <img id="image2" src="./img/new_paper_words.png">
+        </div>
+        <div class="game-display">
+            <img id="image3" src="./img/new_scissors_words.png">
+        </div>
+    </div>
+    <div id="intro-display">
+        <div class="rules">
+            <img src="./img/RULES.png">
+        </div>
+        <p>First to score 5 wins</p>
+        <button class="button" id="playButton">Play</button>
+    </div>
+    <div id="game-over">
+        <button class="button" id="playAgainButton">Play Again</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
