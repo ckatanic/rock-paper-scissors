@@ -299,7 +299,7 @@ h2, .score span {
     #image1, #image2, #image3 {
         height: 150px;
     }
-    
+
     .game-display {
         display: flex;
         flex-shrink: 1;
@@ -325,7 +325,7 @@ h2, .score span {
         flex-direction: column;
         align-items: center;
         gap: 2rem;
-        margin: 5rem 0rem 0rem 0;
+        margin: 4rem 0rem 0rem 0;
     }
 
 }

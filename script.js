@@ -183,8 +183,8 @@ function resetRound() {
     gameImages.classList.add('hidden');
 
     // Change #box1 & #box3 to game images and show #box2
-    image1.src="./img/rock_words_clear.png";
-    image3.src="./img/scissors_words_clear.png";
+    image1.src="./img/new_rock_words.png";
+    image3.src="./img/new_scissors_words.png";
     image2.style.display="block";
     gameImages.setAttribute('fading-in', "");
     
