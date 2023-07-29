@@ -47,6 +47,7 @@ body {
     display: flex;
     flex-direction: column;
     color: white;
+    width: 100vw;
 }
 
 #intro-display {
@@ -328,7 +329,7 @@ h2, .score span {
         align-items: center;
         justify-content: flex-start;
         gap: 2rem;
-        margin: 3rem 0rem 0rem 0;
+        margin: 5rem 0rem 0rem 0;
     }
 
 }
