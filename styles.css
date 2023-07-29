@@ -31,7 +31,6 @@
 }
 
 body {
-    /* min-width: 400px; */
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -113,15 +112,11 @@ h3 {
     margin: 5rem auto 0 auto;
     opacity: 0;
     display: none;
-    /* padding-left: 5%; */
-    /* padding-right: 5%; */
-    /* background-color: green; */
 }
 
 .game-display {
-    /* display: flex; */
+    display: inline-block;
     justify-content: center;
-    /* background-color: blue; */
 }
 
 h1 {
@@ -301,10 +296,13 @@ h2, .score span {
         height: 1.75rem;
     }
 
-    #image1, #image2, #image3 { width: 40% }
-
+    #image1, #image2, #image3 {
+        height: 150px;
+    }
+    
     .game-display {
         display: flex;
+        flex-shrink: 1;
     }
 
     .rules {
@@ -316,7 +314,6 @@ h2, .score span {
         height: 100%;
         display: flex; 
         gap: 3rem;
-        /* justify-content: space-around; */
     }
 
     .rules img {
@@ -324,11 +321,9 @@ h2, .score span {
     }
 
     .gameplay {
-        flex: 1;
         width: 80%;
         flex-direction: column;
         align-items: center;
-        justify-content: flex-start;
         gap: 2rem;
         margin: 5rem 0rem 0rem 0;
     }
