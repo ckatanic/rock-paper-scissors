@@ -87,20 +87,9 @@ h3 {
     border-radius: 15px;
 }
 
-.button:hover {
-    background-color: #333;
-}
-
-
-
 .game-display img {
     background-color: white;
     transition: 200ms;
-}
-
-.hover:hover {
-    background-color: #111;
-    cursor: pointer;
 }
 
 .gameplay {
@@ -336,7 +325,12 @@ h2, .score span {
 }
 
 @media (hover: hover) {
-    button:hover {
+    .hover:hover {
+        background-color: #111;
+        cursor: pointer;
+    }
+
+    .button:hover {
         background-color: #333;
     }
 }
