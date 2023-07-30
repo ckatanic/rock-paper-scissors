@@ -297,7 +297,7 @@ h2, .score span {
     }
 
     #image1, #image2, #image3 {
-        height: 150px;
+        height: 125px;
     }
 
     .game-display {
@@ -308,12 +308,17 @@ h2, .score span {
     .rules {
         display: flex;
         justify-content: center;
+        margin-top: 2rem;
+        align-items: flex-start;
+    }
+
+    #intro-display p {
+        margin-top: 3rem;
     }
 
     #intro-display {
         height: 100%;
         display: flex; 
-        gap: 3rem;
     }
 
     .rules img {
@@ -328,6 +333,12 @@ h2, .score span {
         margin: 3rem 0rem 0rem 0;
     }
 
+}
+
+@media (hover: hover) {
+    button:hover {
+        background-color: #333;
+    }
 }
 
 
